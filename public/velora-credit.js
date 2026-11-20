@@ -1,0 +1,9 @@
+(function(){var C={"after_text": "", "target": "main > section:last-of-type", "color": "rgba(250,240,220,.6)", "font": "inherit", "bg": "transparent", "wa": "https://wa.me/917025423395?text=Hi%20Velora%21%20I%20saw%20your%20wedding%20invitation%20templates%20and%20I%27m%20interested.%20I%27d%20like%20to%20get%20a%20wedding%20e-invitation%20made%20for%20us.%20Could%20you%20please%20share%20the%20details%3F"};
+function findAfter(){if(!C.after_text)return null;var all=document.querySelectorAll('p,div,span,small');for(var i=all.length-1;i>=0;i--){var e=all[i];if(e.children.length===0&&(e.textContent||'').trim().indexOf(C.after_text)===0)return e;}return null;}
+function add(){if(document.getElementById('velora-credit'))return true;var a=findAfter();var t=a?null:document.querySelector(C.target);if(!a&&!t)return false;
+var d=document.createElement('div');d.id='velora-credit';d.style.cssText='position:relative;z-index:5;text-align:center;padding:10px 0 22px;font-family:'+C.font+';font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:'+C.color+';background:'+C.bg;
+d.innerHTML='Crafted by <a href="'+C.wa+'" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:1px">Velora</a>';
+if(a){d.style.padding='8px 0 0';a.parentNode.insertBefore(d,a.nextSibling);}else t.appendChild(d);return true;}
+function go(){var n=0;var iv=setInterval(function(){if(add()||++n>40)clearInterval(iv);},250);}
+if(document.readyState==='complete')setTimeout(go,800);else window.addEventListener('load',function(){setTimeout(go,800);});
+})();
